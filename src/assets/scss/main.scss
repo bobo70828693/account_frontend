@@ -1,0 +1,167 @@
+$main_color: #6DD7DE;
+$color_yellow: #FEDC6B;
+$color_black: #000;
+$color_white: #f4f4f8;
+$color_red: #F56C6C;
+
+html, body {
+  margin: 0;
+  background-color: $main_color;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+* {
+  // border: 1px solid #000;
+}
+
+.el-main {
+  padding-top: 75px;
+}
+
+.login-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .login-box {
+    padding: 40px;
+    width: 30%;
+    height: 60%;
+    border: 8px solid $color_black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:inset 8px 8px 2px $color_yellow,
+                8px 8px 2px $color_yellow;
+  }
+}
+
+.el-form-item__label {
+  text-shadow: 3px 3px $color_yellow;
+  font-size: 20px;
+  font-weight: bold;
+  color: $color_black;
+}
+
+.common-text {
+  text-shadow: 3px 3px $color_yellow;
+  font-size: 30px;
+  font-weight: bold;
+  color: $color_black;
+}
+
+.operating-button {
+  font-size: 15px;
+  font-weight: bold;
+  &.operating-button--submit {
+    background-color: $color_yellow;
+    color: $color_black;
+    box-shadow: 2px 2px 1px $color_black;
+  }
+  &:hover {
+    color: $main_color;
+    transform: translateX(2px) translateY(2px);
+    transition-duration: 500ms;
+  }
+}
+
+/*-------------------------*/
+/* $AdminDialog
+/*-------------------------*/  
+.dialog-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: rgba(0,0,0,.6);
+  z-index: 2000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  .dialog-box-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    flex-direction: column;
+    max-width: 600px;
+    width: 100vw;
+    margin: 0 auto;
+    overflow: hidden;
+    max-height: 100vh;
+    background-color: $color_white;
+    border: 4px solid $color_black;
+    box-shadow: 3px 3px $color_yellow;
+    .dialog-header {
+      height: 50px;
+      width: 100%;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      background-color: darken($main_color, 5%);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .close-btn {
+        background-color: $color_white;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: 3px solid $color_black;
+        cursor: pointer;
+        &::before,
+        &::after {
+          position: absolute;
+          content: ' ';
+          height: 31px;
+          width: 5px;
+          background-color: $color_red;
+        }
+        &::before {
+          transform: translate(-50%) rotate(45deg);
+        }
+        &::after {
+          transform: translate(-50%) rotate(-45deg);
+        }
+      }
+    }
+    .dialog-body {
+      height: 300px;
+      width: 100%;
+      background-color: darken($main_color, 20%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+}
+
+/*-------------------------*/
+/* $Button
+/*-------------------------*/  
+.btn-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  .base-btn {
+    border: 3px solid $color_black;
+    border-radius: 5px;
+    padding: 3px 15px;
+    margin: 10px 10px;
+    background-color: darken($color_white, 10%);
+    text-shadow: 2px 2px $color_yellow;
+    font-size: 20px;
+    font-weight: bold;
+    color: $color_black;
+    box-shadow: 3px 3px 1px $color_yellow;
+    cursor: pointer;
+  }
+  .btn-confirm {
+    color: $color_black;
+    background-color: $color_red;
+    text-shadow: 2px 2px $color_white;
+  }
+}
