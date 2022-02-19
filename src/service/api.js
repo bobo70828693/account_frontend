@@ -7,3 +7,7 @@ export const apiLogout = () =>
   axios.post(`/api/logout`);
 export const apiUserSelf = () =>
   axios.post(`/api/self`);
+
+// Stock
+export const apiStockSearchList = (params) =>
+  axios.get(`/api/stock`, { params : params })

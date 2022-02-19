@@ -3,15 +3,18 @@
   background-color: $main_color;
   display: flex;
   flex-direction: row;
-  padding: 5px 3px;
+  justify-content: space-between;
+  padding: 5px 0;
   width: 100%;
   position: fixed;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  height: 55px;
   .dropdown-menu {
     background-color: $color_white;
     position: absolute;
     top: -10px;
-    right: 50px;
+    right: 30px;
     padding: 5px 0;
     border: 2px solid $color_white;
     border-radius: 10px;
@@ -24,7 +27,7 @@
       text-decoration: none;
       font-size: 20px;
       font-weight: bold;
-      text-shadow: 2px 2px $color_yellow;
+      text-shadow: 2px 1px $color_black;
     }
     &::before {
       border-color: transparent transparent $color_white transparent; 
@@ -49,12 +52,21 @@
       width: 0px;
     }
   }
+  .flex-nav {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 .account-box {
   display: flex;
   align-items: center;
-  width: 93%;
+  margin-right: 20px;
   justify-content: flex-end;
   .user-box {
     cursor: pointer;
@@ -71,8 +83,6 @@
     .user-name {
       margin-right: 10px;
       font-size: 25px;
-      font-weight: bold;
-      text-shadow: 2px 2px $color_yellow;
       display: flex;
       align-items: center;
     }

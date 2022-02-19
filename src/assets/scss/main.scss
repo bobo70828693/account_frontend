@@ -4,6 +4,14 @@ $color_black: #000;
 $color_white: #f4f4f8;
 $color_red: #F56C6C;
 
+//-- 
+$main_color: #438496;
+$color_red: #e24e42;
+$color_white: #fbfbfb;
+$color_black: #2a2a2a;
+$color_yellow: #e9b000;
+$color_aqua: #008f95;
+
 html, body {
   margin: 0;
   background-color: $main_color;
@@ -15,7 +23,7 @@ html, body {
 }
 
 .el-main {
-  padding-top: 75px;
+  padding-top: 90px;
 }
 
 .login-wrapper {
@@ -38,17 +46,17 @@ html, body {
 }
 
 .el-form-item__label {
-  text-shadow: 3px 3px $color_yellow;
+  text-shadow: 3px 3px $color_black;
   font-size: 20px;
   font-weight: bold;
-  color: $color_black;
+  color: $color_red;
 }
 
 .common-text {
-  text-shadow: 3px 3px $color_yellow;
+  text-shadow: 3px 2px $color_black;
   font-size: 30px;
   font-weight: bold;
-  color: $color_black;
+  color: $color_red;
 }
 
 .operating-button {
@@ -163,5 +171,31 @@ html, body {
     color: $color_black;
     background-color: $color_red;
     text-shadow: 2px 2px $color_white;
+  }
+}
+
+/*-------------------------*/
+/* $Card
+/*-------------------------*/  
+.el-card {
+  background: linear-gradient(45deg, $color_red 0%, $color_aqua 100%) !important;
+  border: none;
+}
+.inform-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: $color_white;
+  font-size: 13px;
+  span {
+    font-weight: bold;
+  }
+  i {
+    font-size: 35px;
+  }
+  .inform-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

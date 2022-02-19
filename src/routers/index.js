@@ -28,28 +28,31 @@ const router =  new VueRouter({
 })
 
 router.beforeEach(async function(to, from, next) {
-  const isLogin = Store.state.AuthUser.token
-
-  if (isLogin) {
     if (to.path === '/login') {
-      next('/dashboard');
-    } else {
-      next();
-    }
-  } else if (jwtToken.getToken()) {
-    Store.dispatch('AuthUser/setAuthUser', jwtToken.getToken())
+      const userToken = jwtToken.getToken()
+
+      await Store.dispatch('AuthUser/checkAuth')
       .then(() => {
+        if (userToken) {
+          next('/dashboard');
+        }
+      })
+      .catch(() => {
         return next({
           name: 'login',
         });
       })
-  } else {
-    if (to.path !== '/login') {
-      next('/login');
     } else {
+      await Store.dispatch('AuthUser/checkAuth')
+      .then(() => {})
+      .catch(() => {
+        return next({
+          name: 'login',
+        });
+      })
       next();
     }
-  }
 })
+
 
 export default router;
