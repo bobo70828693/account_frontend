@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Store from "../stores/index"
-import jwtToken from '../helpers/jwt'
+import Store from "../stores/index";
+import jwtToken from '../helpers/jwt';
 
 Vue.use(VueRouter)
 
@@ -38,9 +38,7 @@ router.beforeEach(async function(to, from, next) {
         }
       })
       .catch(() => {
-        return next({
-          name: 'login',
-        });
+        return next();
       })
     } else {
       await Store.dispatch('AuthUser/checkAuth')
@@ -50,8 +48,12 @@ router.beforeEach(async function(to, from, next) {
           name: 'login',
         });
       })
-      next();
+      // next();
     }
+
+    // init Vuex
+    await Store.dispatch('StockCode/setStockCodeList')
+    next();
 })
 
 

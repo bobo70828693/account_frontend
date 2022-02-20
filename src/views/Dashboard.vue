@@ -7,7 +7,7 @@
       :gutter="100"
       >
 
-      <el-col :lg=8 :xs=4>
+      <el-col :lg=8 :xs=8>
         <el-card shadow="always">
           <div class="inform-box">
             <div class="content-box inform-text">
@@ -20,7 +20,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :lg=8 :xs=4>
+      <el-col :lg=8 :xs=8>
         <el-card shadow="always">
           <div class="inform-box">
             <div class="content-box inform-text">
@@ -33,7 +33,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :lg=8 :xs=4>
+      <el-col :lg=8 :xs=8>
         <el-card shadow="always">
           <div class="inform-box">
             <div class="content-box inform-text">
@@ -51,21 +51,26 @@
       <Table />
     </el-row>
     <div class="create-btn-wrapper">
-      <div class="create-btn-box">
+      <div class="create-btn-box" @click="handleStockAddDialog">
         <i class="el-icon-circle-plus-outline"></i>
       </div>
     </div>
+    <AddStockDialog
+      v-if="showAddStockDialog"
+      @close="closeHandle"
+    />
   </div>
 </template>
 
 <script>
-// import LogoutDialog from '@/components/user/LogoutDialog.vue'
+import AddStockDialog from '@/components/stock/addStockDialog.vue'
 import Table from '@/components/dashboard/Table.vue'
 
 export default {
   data() {
     return {
-      showLogoutDialog: false,
+      showAddStockDialog: false,
+
       isLoading: true,
       stock_data: {
         cost: 56000,
@@ -75,12 +80,19 @@ export default {
     }
   },
   components: {
-    Table
+    Table,
+    AddStockDialog
   },
   mounted() {
     
   },
   methods: {
+    handleStockAddDialog() {
+      this.showAddStockDialog = true;
+    },
+    closeHandle() {
+      this.showAddStockDialog = false;
+    }
   }
 }
 </script>

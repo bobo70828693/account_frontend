@@ -19,7 +19,7 @@
         label="編號"
       >
         <template slot-scope="scope">
-          <span>{{ scope.row.stock_info.stock_code + scope.row.stock_info.description }}</span>
+          <span>{{ scope.row.stock_info.stock_code + ' ' + scope.row.stock_info.description }}</span>
         </template>
       </el-table-column>
       <el-table-column

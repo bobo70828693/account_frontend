@@ -10,4 +10,9 @@ export const apiUserSelf = () =>
 
 // Stock
 export const apiStockSearchList = (params) =>
-  axios.get(`/api/stock`, { params : params })
+  axios.get(`/api/stock`, { params : params });
+export const apiCreateStockTradeLog = (data) =>
+  axios.post(`/api/stock`, data);
+// Stock Code
+export const apiStockCodeList = () =>
+  axios.get(`/api/stock-code`);

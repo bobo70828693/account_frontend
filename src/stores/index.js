@@ -4,10 +4,12 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 import AuthUser from './modules/AuthUser.js';
+import StockCode from './modules/StockCode.js';
 
 export default new Vuex.Store({
   modules: {
-    AuthUser
+    AuthUser,
+    StockCode
   },
   strict: true
 });

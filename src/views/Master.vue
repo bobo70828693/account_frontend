@@ -4,7 +4,6 @@
     <el-main>
       <router-view></router-view>
     </el-main>
-    <div style="height: 1280px"></div>
   </div>
 </template>
 
