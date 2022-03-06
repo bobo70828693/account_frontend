@@ -10,7 +10,7 @@ $color_red: #e24e42;
 $color_white: #fbfbfb;
 $color_black: #2a2a2a;
 $color_yellow: #e9b000;
-$color_aqua: #008f95;
+$color_aqua: #8306cc;
 
 html, body {
   margin: 0;
@@ -24,6 +24,7 @@ html, body {
 
 .el-main {
   padding-top: 90px;
+  width: 100%;
 }
 
 .login-wrapper {
@@ -182,14 +183,14 @@ html, body {
 /* $Card
 /*-------------------------*/  
 .el-card {
-  background: linear-gradient(45deg, $color_red 0%, $color_aqua 100%) !important;
+  background: linear-gradient(45deg, $color_red 0%, $color_yellow 100%) !important;
   border: none;
 }
 .inform-box {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: $color_white;
+  color: darken($color_white, 10%);
   font-size: 13px;
   span {
     font-weight: bold;
@@ -202,4 +203,33 @@ html, body {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/*-------------------------*/
+/* $Marquee
+/*-------------------------*/
+.marquee {
+  width: 100%;
+  height: 2rem;
+  background-color: $color_aqua;
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    li {
+      text-decoration: none;
+    }
+  }
+}
+
+.v-enter-active, .v-leave-active {
+  transition: all .5s ease;
+}
+
+.v-enter-from, .v-leave-to {
+  opacity: 0;
+}
+
+.v-enter-to, .v-leave-from {
+  opacity: 1;
 }

@@ -9,10 +9,10 @@
       <div class="login-user-box">
         <el-form>
           <el-form-item label="信箱" label-width="60px">
-            <el-input autofocus v-model="user_email"></el-input>
+            <el-input autofocus v-model="user_email" @keyup.enter.native="login" ></el-input>
           </el-form-item>
           <el-form-item label="密碼" label-width="60px">
-            <el-input v-model="user_password" type="password"></el-input>
+            <el-input v-model="user_password" type="password" @keyup.enter.native="login" ></el-input>
           </el-form-item>
           <el-form-item>
             <el-button class="operating-button operating-button--submit" type="primary" @click="login">Login</el-button>

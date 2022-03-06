@@ -62,27 +62,42 @@ export default {
     }
   },
 
+  props: ['refresh'],
+
   mounted() {
-    this.getStockLogData()
+    this.initial()
+  },
+
+  watch: {
+    refresh(val){
+      if (val) {
+        this.initial();
+      }
+    }
   },
 
   methods: {
-    getStockLogData() {
+    initial() {
+      let loader = this.$loading.show(); 
       apiStockSearchList(this.searchData)
         .then((res) => {
           this.tableData = res.data.data
+        })
+        .then(() => {
+          loader.hide();
+          this.$emit('disableRefresh')
         })
     },
     
     handleSizeChange(val) {
       this.searchData.per_page = val;
-      this.getStockLogData();
+      this.initial();
     },
 
     handleCurrentChange(val) {
       this.searchData.page = val;
-      this.getStockLogData();
-    }
+      this.initial();
+    },
   }
 }
 </script>

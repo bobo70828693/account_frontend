@@ -1,10 +1,10 @@
 <template>
   <div>
+    <Marquee />
     <el-row 
       type="flex" 
       class="row-bg" 
-      justify="space-around"
-      :gutter="100"
+      justify="space-between"
       >
 
       <el-col :lg=8 :xs=8>
@@ -48,7 +48,7 @@
       </el-col>
     </el-row>
     <el-row>
-      <Table />
+      <Table :refresh="refresh" @disableRefresh="disableRefresh"/>
     </el-row>
     <div class="create-btn-wrapper">
       <div class="create-btn-box" @click="handleStockAddDialog">
@@ -65,11 +65,13 @@
 <script>
 import AddStockDialog from '@/components/stock/addStockDialog.vue'
 import Table from '@/components/dashboard/Table.vue'
+import Marquee from '@/components/dashboard/Marquee.vue'
 
 export default {
   data() {
     return {
       showAddStockDialog: false,
+      refresh: false,
 
       isLoading: true,
       stock_data: {
@@ -81,7 +83,8 @@ export default {
   },
   components: {
     Table,
-    AddStockDialog
+    AddStockDialog,
+    Marquee
   },
   mounted() {
     
@@ -92,6 +95,11 @@ export default {
     },
     closeHandle() {
       this.showAddStockDialog = false;
+      this.refresh = true;
+    },
+
+    disableRefresh() {
+      this.refresh = false;
     }
   }
 }
@@ -121,5 +129,8 @@ export default {
       }
     }
   }
+}
+.el-col {
+  width: 25%;
 }
 </style>

@@ -16,7 +16,7 @@ module.exports = {
         target: process.env.VUE_APP_API_PROXY_TARGET,
         changeOrigin: true,
         ws: true,
-        logLevel: 'debug',
+        // logLevel: 'debug',
         pathRewrite: {
           "^/api": "/api"
         }
